@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Select2 Bootstrap Styling Sample</title>
+
+    <!-- bootstrap + theme to test with -->
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/bootstrap-theme.css">
+    <!-- full (common+native) support for select2 -->
+    <!-- (bootstrap styling is based on the native styling currently) -->
+    <link rel="stylesheet" href="../select2.css">
+    <!-- support for the select2 bootstrap mode -->
+    <link rel="stylesheet" href="../select2-bootstrap.css">
+
+    <!-- select2 and bootstrap depend on jquery -->
+    <script src="scripts/jquery.js"></script>
+    <!-- bootstrap to test with -->
+    <script src="scripts/bootstrap.js"></script>
+    <!-- select2 to test with -->
+    <script src="../select2.js"></script>
+    <!-- select2 extension for bootstrap to test with -->
+    <script src="../select2-bootstrap.js"></script>
+
+    <style>
+    /* Normalize the default font size */
+    body {
+      font-size: 11px;
+    }
+    /* Make the input controls wide enough to accomodate multiple values */
+    .select2-container {
+      width: 30em;
+      margin: 1em;
+    }
+    button {
+      margin: 1em;
+    }
+    </style>
+
+    <script>
+    // Force the coding discipline
+    'use strict';
+    // Wait until the DOM can be manipulated safely
+    $(function () {
+      // Convert some controls to select2 with the bootstrap look&feel
+      $('.select2-bootstrap select').select2()
+      // Pre-select Austria and Hungary
+        .select2('val', ['at', 'hu']);
+    });
+    </script>
+  </head>
+
+  <body>
+
+    <div class="select2-bootstrap">
+      <h3>Bootstrap</h3>
+      <p>The Bootstrap mode depends on the full <code>select2.css</code> which includes the native styling.  It is pre-selected as the default theme after including <code>select2-bootstrap.js</code>, because Bootstrap cannot be easily combined with other GUI frameworks on a single page and once included, it is used completely.</p>
+      <pre>
+  &lt;link rel="stylesheet" href="select2.css"&gt;
+  &lt;link rel="stylesheet" href="select2-bootstrap.css"&gt;
+  &lt;script src="select2.js"&gt;&lt;/script&gt;
+  &lt;script src="select2-bootstrap.js"&gt;&lt;/script&gt;
+  $('...').select2();</pre>
+      <select>
+        <option value="at">Austria</option>
+        <option value="cz">Czech Republic</option>
+        <option value="de">Germany</option>
+        <option value="hu">Hungary</option>
+        <option value="pl">Poland</option>
+      </select>
+      <select multiple>
+        <option value="at">Austria</option>
+        <option value="cz">Czech Republic</option>
+        <option value="de">Germany</option>
+        <option value="hu">Hungary</option>
+        <option value="pl">Poland</option>
+      </select>
+      <button class="btn">Sample</button>
+    </div>
+
+  </body>
+
+</html>
+

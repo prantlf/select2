@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Select2 Styling Samples</title>
+
+    <!-- jqui theme to test with -->
+    <link rel="stylesheet" href="themes/le-frog/jquery-ui.css">
+    <!-- common support for select2 -->
+    <link rel="stylesheet" href="../select2-base.css">
+    <!-- support for the select2 native look&feel -->
+    <link rel="stylesheet" href="../select2-native.css">
+    <!-- support for the select2 jqui mode -->
+    <link rel="stylesheet" href="../select2-jquery-ui.css">
+
+    <!-- select2 and jqui depend on jquery -->
+    <script src="scripts/jquery.js"></script>
+    <!-- jqui to test with -->
+    <script src="scripts/jquery-ui.js"></script>
+    <!-- select2 to test with -->
+    <script src="../select2.js"></script>
+    <!-- select2 extension for jqui to test with -->
+    <script src="../select2-jquery-ui.js"></script>
+
+    <style>
+    /* Normalize the default font size */
+    body {
+      font-size: 11px;
+    }
+    /* Make the input controls wide enough to accomodate multiple values */
+    .select2-container {
+      width: 30em;
+      margin: 1em;
+    }
+    button {
+      margin: 1em;
+    }
+    /* Reserve enough space for the iframe with the bootstrap sample */
+    iframe {
+      width: 75em;
+      height: 35em;
+      border: none;
+    }
+    </style>
+
+    <script>
+    // Force the coding discipline
+    'use strict';
+    // Wait until the DOM can be manipulated safely
+    $(function () {
+      // Convert some controls to select2 with the native look&feel
+      $('.select2-native select').select2()
+      // Pre-select Austria and Hungary
+        .select2('val', ['at', 'hu']);
+      // Convert some controls to select2 with the jqui look&feel
+      $('.select2-jquery-ui select').select2({ theme: 'jquery-ui' })
+      // Pre-select Austria and Hungary
+        .select2('val', ['at', 'hu']);
+      $('.select2-jquery-ui button').button();
+    });
+    </script>
+  </head>
+
+  <body>
+
+    <div class="select2-native">
+      <h3>Native</h3>
+      <p>The native look&smp;feel is enabled by the original Select2 interface, although the <code>select2.css</code> just imports <code>select2-base.css</code> and <code>select2-native.css</code> now.</p>
+      <pre>
+  &lt;link rel="stylesheet" href="select2.css"&gt;
+  &lt;script src="select2.js"&gt;&lt;/script&gt;
+  $('...').select2();</pre>
+      <select id="first">
+        <option value="at">Austria</option>
+        <option value="cz">Czech Republic</option>
+        <option value="de">Germany</option>
+        <option value="hu">Hungary</option>
+        <option value="pl">Poland</option>
+      </select>
+      <select multiple>
+        <option value="at">Austria</option>
+        <option value="cz">Czech Republic</option>
+        <option value="de">Germany</option>
+        <option value="hu">Hungary</option>
+        <option value="pl">Poland</option>
+      </select>
+      <button>Sample</button>
+    </div>
+
+    <div class="select2-jquery-ui">
+      <div class="ui-widget">
+        <h3>jQuery UI</h3>
+        <p>The jQuery UI mode expects loading the <code>select2-base.css</code> only instead of the <code>select2.css</code> and passing the <code>jqueryu-ui</code> theme mode to the initializer.</p>
+        <pre>
+  &lt;link rel="stylesheet" href="select2-base.css"&gt;
+  &lt;link rel="stylesheet" href="select2-jquery-ui.css"&gt;
+  &lt;script src="select2.js"&gt;&lt;/script&gt;
+  &lt;script src="select2-jquery-ui.js"&gt;&lt;/script&gt;
+  $('...').select2({ theme: 'jquery-ui' });</pre>
+        <p>The jQuery UI mode is not used by default, because the jQuery UI is often used only partially with other GUI framework.  If full jQuery UI including the themes is used on the page, it can be set up to be used by default to save the constructor parameter.</p>
+        <pre>
+  $.fn.select2.defaults.theme_default = 'jquery-ui';</pre>
+      </div>
+      <select>
+        <option value="at">Austria</option>
+        <option value="cz">Czech Republic</option>
+        <option value="de">Germany</option>
+        <option value="hu">Hungary</option>
+        <option value="pl">Poland</option>
+      </select>
+      <select multiple>
+        <option value="at">Austria</option>
+        <option value="cz">Czech Republic</option>
+        <option value="de">Germany</option>
+        <option value="hu">Hungary</option>
+        <option value="pl">Poland</option>
+      </select>
+      <button>Sample</button>
+    </div>
+
+    <iframe src="bootstrap.html"></iframe>
+
+  </body>
+
+</html>
